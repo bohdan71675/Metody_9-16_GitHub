@@ -37,5 +37,17 @@ namespace Metody_9_16_GitHub
             MessageBox.Show("Pocet slov je: " + Obsahuje.PocetSlov(s, out novyretezec) + " Veta bez cislic: " + novyretezec);
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string s = "Ahoj jak se mas";
+            string nejkratsi = "";
+            string nejdelsi = "";
+            if (Obsahuje.ObsahujeSlovo(s, out nejkratsi, out nejdelsi))
+            {
+                MessageBox.Show("Obsahuje alespon jedno slovo\nNejkratsi je: " + nejkratsi + "\nNejdelsi je: " + nejdelsi);
+            }
+            else MessageBox.Show("Zadne slovo");
+        }
     }
 }

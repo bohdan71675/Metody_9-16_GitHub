@@ -55,5 +55,33 @@ namespace Metody_9_16_GitHub
             novyretezec = s;
             return pocet;
         }
+
+        public static bool ObsahujeSlovo(string s, out string nejkratsi, out string nejdelsi)
+        {
+            bool obsahuje1 = false;
+            nejkratsi = "";
+            nejdelsi = "";
+            if (s.Length > 0 && s != "")
+            {
+                obsahuje1 = true;
+                while (s.Contains("  "))
+                {
+                    s = s.Replace("  ", " ");
+                }
+                s = s.Trim();
+                char[] separator = { ' ' };
+                string[] subs = s.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+                nejkratsi = subs[0];
+                nejdelsi = subs[0];
+
+                for (int i = 0; i < subs.Length; i++)
+                {
+                    string slovo = subs[i];
+                    if (slovo.Length < nejkratsi.Length) nejkratsi = slovo;
+                    if (slovo.Length > nejdelsi.Length) nejdelsi = slovo;
+                }
+            }
+            return obsahuje1;
+        }
     }
 }
