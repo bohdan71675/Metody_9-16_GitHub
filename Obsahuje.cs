@@ -28,5 +28,32 @@ namespace Metody_9_16_GitHub
             }
             return obsahuje;
         }
+
+        public static int PocetSlov(string s, out string novyretezec)
+        {
+            while (s.Contains("  "))
+            {
+                s = s.Replace("  ", " ");
+            }
+            s = s.Trim();
+            novyretezec = s;
+            int pocet = 0;
+            char[] separator = { ' ' };
+            string[] subs = s.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            pocet = subs.Length;
+
+            int i = 0;
+            while (i < s.Length)
+            {
+                if (Char.IsNumber(s[i]))
+                {
+                    s = s.Remove(i, 1);
+
+                }
+                else ++i;
+            }
+            novyretezec = s;
+            return pocet;
+        }
     }
 }

@@ -29,5 +29,13 @@ namespace Metody_9_16_GitHub
             }
             else MessageBox.Show("Neobsahuje číslo");
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string s = "Ahoj5 jak0 se mas34";
+            string novyretezec = "";
+            MessageBox.Show("Pocet slov je: " + Obsahuje.PocetSlov(s, out novyretezec) + " Veta bez cislic: " + novyretezec);
+
+        }
     }
 }
