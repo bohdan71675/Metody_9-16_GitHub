@@ -83,5 +83,35 @@ namespace Metody_9_16_GitHub
             }
             return obsahuje1;
         }
+
+        public static bool JeAlfanum(string s, out int malych, out int velkych, out int jinych)
+        {
+             malych = 0;
+             velkych = 0;
+             jinych = 0;
+            bool jeAlfum = true;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (char.IsNumber(s[i]))
+                {
+                    jeAlfum = true;
+                }
+                else if (char.IsLower(s[i]))
+                {
+                    malych++;
+                }
+                else if (char.IsUpper(s[i]))
+                {
+                    velkych++;
+                }
+                else
+                {
+                    jeAlfum = false;
+                    jinych++;
+                }
+            }
+
+            return jeAlfum;
+        }
     }
 }

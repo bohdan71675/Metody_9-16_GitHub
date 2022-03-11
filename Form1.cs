@@ -49,5 +49,18 @@ namespace Metody_9_16_GitHub
             }
             else MessageBox.Show("Zadne slovo");
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string s = "Ahoj 6jak se 6mas";
+            int malych = 0;
+            int velkych = 0;
+            int jinych = 0;
+            if (Obsahuje.JeAlfanum(s, out malych, out velkych, out jinych))
+            {
+                MessageBox.Show("Ano, je alfanumericke \nMalych pismen je: " + malych + "\nVelkych pismen je : " + velkych);
+            }
+            else MessageBox.Show("Ne neni alfanumericke \nMalych pismen je: " + malych + "\nVelkych pismen je : " + velkych + "\nJinych je: " + jinych);
+        }
     }
 }
