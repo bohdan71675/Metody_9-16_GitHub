@@ -62,5 +62,19 @@ namespace Metody_9_16_GitHub
             }
             else MessageBox.Show("Ne neni alfanumericke \nMalych pismen je: " + malych + "\nVelkych pismen je : " + velkych + "\nJinych je: " + jinych);
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string s = "Ahoj5";
+            string s1 = "Ahoj2";
+            int poziceZmeny = -1;
+            int pocetZmen = 0;
+
+            if (Obsahuje.Identicke(s, s1, out poziceZmeny, out pocetZmen))
+            {
+                MessageBox.Show("Ano jsou identicke");
+            }
+            else MessageBox.Show("Nejsou identicke" + "\nPozice prvni zmeny je: " + poziceZmeny + "\nPocet zmen je: " + pocetZmen);
+        }
     }
 }

@@ -89,21 +89,21 @@ namespace Metody_9_16_GitHub
              malych = 0;
              velkych = 0;
              jinych = 0;
-            bool jeAlfum = true;
+            bool jeAlfum = false;
             for (int i = 0; i < s.Length; i++)
             {
-                if (char.IsNumber(s[i]))
+                if (char.IsLetterOrDigit(s[i]))
                 {
                     jeAlfum = true;
-                }
-                else if (char.IsLower(s[i]))
-                {
-                    malych++;
-                }
-                else if (char.IsUpper(s[i]))
-                {
-                    velkych++;
-                }
+                     if (char.IsLower(s[i]))
+                     {
+                        malych++;
+                     }
+                    else if (char.IsUpper(s[i]))
+                    {
+                        velkych++;
+                    }
+                }    
                 else
                 {
                     jeAlfum = false;
@@ -112,6 +112,46 @@ namespace Metody_9_16_GitHub
             }
 
             return jeAlfum;
+        }
+        public static bool Identicke(string s, string s1, out int poziceZmeny, out int pocetZmen)
+        {
+            poziceZmeny = -1;
+            pocetZmen = 0;
+            bool identicke = false;
+            if (s == s1)
+            {
+                identicke = true;
+            }
+            else
+            {
+                bool prvnizmena = false;
+                identicke = false;
+                if (s.Length > s1.Length)
+                {
+                    string pomocna = s;
+                    s = s1;
+                    s1 = pomocna;
+                }
+
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (s[i] != s1[i])
+                    {
+                        ++pocetZmen;
+                        if (!prvnizmena)
+                        {
+                            poziceZmeny = s[i];
+                            prvnizmena = true;
+                        }
+                    }
+                }
+                if (!prvnizmena)
+                {
+                    poziceZmeny = s.Length;
+                }
+                pocetZmen += s1.Length - s.Length; 
+            }
+            return identicke;
         }
     }
 }
