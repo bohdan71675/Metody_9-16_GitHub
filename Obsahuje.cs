@@ -133,23 +133,19 @@ namespace Metody_9_16_GitHub
                     s1 = pomocna;
                 }
 
-                for (int i = 0; i < s.Length; i++)
+                for (int i = 0; i < s1.Length; i++)
                 {
-                    if (s[i] != s1[i])
+                    if (s1[i] != s[i])
                     {
                         ++pocetZmen;
                         if (!prvnizmena)
                         {
-                            poziceZmeny = s[i];
+                            poziceZmeny = s1[i];
                             prvnizmena = true;
                         }
                     }
                 }
-                if (!prvnizmena)
-                {
-                    poziceZmeny = s.Length;
-                }
-                pocetZmen += s1.Length - s.Length; 
+                pocetZmen = pocetZmen + (s1.Length - s.Length); 
             }
             return identicke;
         }
